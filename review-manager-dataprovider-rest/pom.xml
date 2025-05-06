@@ -1,54 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
+	<!-- #########################################################################  -->
+	<!-- #### P A R E N T _ P R O J E C T ######################################## -->
+	<!-- ######################################################################### -->
+
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.4.5</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<groupId>com.tracktainment</groupId>
+		<artifactId>review-manager</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>com.tracktainment</groupId>
-	<artifactId>review-manager</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>review-manager</name>
-	<description>Demo project for Spring Boot</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
-	<properties>
-		<java.version>17</java.version>
-	</properties>
+
+	<!-- #########################################################################  -->
+	<!-- #### P R O J E C T _ D E S C R I P T I O N ############################## -->
+	<!-- ######################################################################### -->
+
+	<artifactId>review-manager-dataprovider-rest</artifactId>
+	<name>Review Manager :: Data Provider REST</name>
+	<description>Review Manager Data Provider REST Module</description>
+
+	<!-- #########################################################################  -->
+	<!-- #### P R O J E C T _ D E P E N D E N C I E S ############################ -->
+	<!-- ######################################################################### -->
+
 	<dependencies>
+		<!-- internal dependencies -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<groupId>com.tracktainment</groupId>
+			<artifactId>review-manager-core</artifactId>
 		</dependency>
 
+		<!-- external dependencies -->
+		<!-- OpenFeign to implement HTTP calls -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+
+		<!-- HTTP client that supports HTTP/2 and PATCH method -->
+		<dependency>
+			<groupId>io.github.openfeign</groupId>
+			<artifactId>feign-okhttp</artifactId>
+			<version>13.4</version>
+		</dependency>
+		<dependency>
+			<groupId>io.github.openfeign</groupId>
+			<artifactId>feign-httpclient</artifactId>
+			<version>13.4</version>
 		</dependency>
 	</dependencies>
+	<!-- #########################################################################  -->
+	<!-- #### P R O J E C T _ P R O P E R T I E S ################################ -->
+	<!-- ######################################################################### -->
+
+	<properties>
+	</properties>
+
+	<!-- #########################################################################  -->
+	<!-- #### P R O J E C T _ B U I L D ########################################## -->
+	<!-- ######################################################################### -->
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
 	</build>
 
 </project>

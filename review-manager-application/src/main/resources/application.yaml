@@ -1,0 +1,57 @@
+###################  Microservice base configuration  ###################
+spring:
+  application:
+    name: review-manager
+    version: 0.0.1-SNAPSHOT
+
+###################  Security configuration  ###################
+spring.security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${JWK_SET_URI}
+
+###################  Server configuration  ###################
+server:
+  port: ${SERVER_PORT}
+  servlet.context-path: /${spring.application.name}
+  ssl:
+    enabled: true # enable https
+    key-store: ${KEY_STORE}
+    key-store-password: ${SSL_KEYSTORE_PASSWORD}
+    key-store-type: PKCS12
+    key-alias: ${KEY_ALIAS}
+
+###################  Logging configuration  ###################
+logging:
+  payload.maxLength: 5000 # 5 KB
+  hide:
+    fields:
+      - "$.headers.transaction-id"
+      - "$.headers.trace-id"
+      - "$.headers.postman-token"
+      - "$.attributes"
+  mask:
+    tag: "<MASKED>"
+    fields:
+      - "$.headers.authorization"
+
+###################  Swagger configuration  ###################
+springdoc:
+  api-docs.path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+
+###################  Postgres configuration  ###################
+spring.datasource:
+  url: ${POSTGRES_URL}
+  username: ${POSTGRES_USER}
+  password: ${POSTGRES_PASSWORD}
+  driver-class-name: org.postgresql.Driver
+
+spring.jpa.hibernate.ddl-auto: create
+
+###################  Data Provider REST configuration  ###################
+http.url:
+  dux-manager: "${HTTP_URL_DUX_MANAGER}"
