@@ -34,7 +34,7 @@ public class ReviewCreate {
     @Min(value = 1, message = Constants.RATING_INVALID_MSG)
     @Max(value = 5, message = Constants.RATING_INVALID_MSG)
     @Schema(description = "Rating of the reviewed entity", example = "5")
-    private int rating;
+    private float rating;
 
     @Pattern(regexp = Constants.TITLE_REGEX, message = Constants.TITLE_INVALID_MSG)
     @Schema(description = "Title of the review", example = "Captivating story with rich character development")

@@ -30,7 +30,7 @@ public class Review {
     private String entityType; // Type of entity ("book", "game", etc.)
 
     @Schema(description = "Rating of the reviewed entity", example = "5")
-    private int rating;
+    private float rating;
 
     @Schema(description = "Title of the review", example = "Captivating story with rich character development")
     private String title;
